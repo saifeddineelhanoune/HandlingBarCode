@@ -39,7 +39,7 @@ const Products = () => {
       </View>
       <SafeAreaView style={ styles.container }>
         <FlatList 
-          data = { filteredData.length == 0 ? Database : filteredData }
+          data = { number ? filteredData : Database }
           renderItem = { renderItem }
           keyExtractor = { item => item.code_art }
         />
