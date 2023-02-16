@@ -4,7 +4,9 @@ import { Database } from '../../Data'
 
 
 const Products = () => {
-  const [number, onChangeNumber] = React.useState(null);
+
+  const [number, onChangeNumber] = React.useState('');
+  
   const renderItem =({item}) =>{
     return(
       <View style={styles.card}>
@@ -18,33 +20,35 @@ const Products = () => {
       
     )
   }
+  const filteredData = Database.filter(item => item.code_art.includes(number));
   return (
     <>
-    <View style={{flexDirection:"row",alignContent:'space-between', borderWidth:1,borderRadius:20,marginHorizontal:10,marginVertical:10,}}>
+
+      <View style={{flexDirection:"row",alignContent:'space-between', borderWidth:1,borderRadius:20,marginHorizontal:10,marginVertical:10,}}>
         <Image
-        style={{width:32,height:32,marginHorizontal:10,marginVertical:10,}}
-        source={require('../../assets/search.png')}
+          style={{width : 32, height : 32, marginHorizontal : 10, marginVertical : 10}}
+          source={require('../../assets/search.png')}
         />
         <TextInput
           style={styles.input}
-          onChangeText={onChangeNumber}
-          value={number}
-          placeholder="Code scan"
+          onChangeText = { onChangeNumber }
+          value = { number }
+          placeholder="search by code article"
           keyboardType="numeric"
         />
-       
-  </View>
-      <SafeAreaView style={styles.container}>
-     <FlatList 
-      data={Database}
-      renderItem={renderItem}
-      keyExtractor={item => item.code_art }
-     />
-    </SafeAreaView>
+      </View>
+      <SafeAreaView style={ styles.container }>
+        <FlatList 
+          data = { filteredData.length == 0 ? Database : filteredData }
+          renderItem = { renderItem }
+          keyExtractor = { item => item.code_art }
+        />
+      </SafeAreaView>
     </>
     
   )
 }
+
 
 export default Products
 

@@ -1,7 +1,7 @@
 import { View, TextInput, StyleSheet, SafeAreaView , Button,Alert} from 'react-native'
 import React from 'react'
 
-const Search = () => {
+const Maj = () => {
   const [number, onChangeNumber] = React.useState(null);
   return (
     <View style={styles.container}>
@@ -75,4 +75,4 @@ const styles = StyleSheet.create({
   
 });
 
-export default Search
+export default Maj

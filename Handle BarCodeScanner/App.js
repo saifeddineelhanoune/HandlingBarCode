@@ -29,14 +29,14 @@ function HomeScreen({navigation}) {
               style={styles.icon}
               source={require('./assets/search.png')}
             />
-          <Text>Search a product</Text>
+          <Text>MAJ products</Text>
         </Pressable>
         <Pressable style={styles.Container2} onPress={() => navigation.navigate('Produits')} >
             <Image
               style={styles.icon}
               source={require('./assets/open-box.png')}
             />
-          <Text>All Products</Text>
+          <Text>Search Products</Text>
         </Pressable>
     </View>
 </View>
@@ -47,7 +47,7 @@ const  ScanScreen = () => {
     <Scanner></Scanner>
   );
 }
-const  ProduitScreen = () => {
+const  ProduitScreen = (value) => {
   return (
     <Products></Products>
   );
@@ -60,44 +60,44 @@ const  SearchScreen= ({navigation}) => {
       style={{width:80,height:80}}
       source={require('./assets/search.png')}
       />
-    <SafeAreaView>
-     <TextInput
-       style={styles.input}
-       onChangeText={onChangeNumber}
-       value={number}
-       placeholder="Code scan"
-       keyboardType="numeric"
-     />
-     <TextInput
-       style={styles.input}
-       onChangeText={onChangeNumber}
-       value={number}
-       placeholder="Code Article"
-       keyboardType="numeric"
-     />
-     <TextInput
-       style={styles.input}
-       onChangeText={onChangeNumber}
-       value={number}
-       placeholder="Designation"
-       keyboardType="numeric"
-     />
-     <TextInput
-       style={styles.input}
-       onChangeText={onChangeNumber}
-       value={number}
-       placeholder="Qantity"
-       keyboardType="numeric"
-     />
-   <View style={styles.fixToText}>
-   <Pressable  style={styles.container4} onPress={() => navigation.navigate('Scan')}>
-            <Text>Scaner</Text>
-        </Pressable>
-        <Pressable style={styles.container4} onPress={() => navigation.navigate('Search')} >
-          <Text>Search</Text>
-        </Pressable>
-   </View>
-   </SafeAreaView>
+      <SafeAreaView>
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Code scan"
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Code Article"
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Designation"
+          keyboardType="numeric"
+        />
+        <TextInput
+          style={styles.input}
+          onChangeText={onChangeNumber}
+          value={number}
+          placeholder="Qantity"
+          keyboardType="numeric"
+        />
+        <View style={styles.fixToText}>
+              <Pressable  style={styles.container4} onPress={() => navigation.navigate('Scan')}>
+                  <Text>ADD</Text>
+              </Pressable>
+              <Pressable style={styles.container4} onPress={() => navigation.navigate('Search')} >
+                  <Text>UPDATE</Text>
+              </Pressable>
+        </View>
+      </SafeAreaView>
    </View>
   );
 }
