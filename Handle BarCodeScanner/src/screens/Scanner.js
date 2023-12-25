@@ -16,10 +16,10 @@ export default function Scanner() {
   const handleBarCodeScanned = ({ data }) => {
     setScanned(true);
     let codeScan = data;
-    let codeArticle = codeScan.substring(4,7);
-    let quantity = codeScan.substring(8,11);
-    if(codeScan.length > 13)
-        alert("le code barre doit être composé de 13 chiffre");
+    let codeArticle = codeScan.substring(4, 7);
+    let quantity = codeScan.substring(8, 11);
+    if (codeScan.length > 13)
+      alert("le code barre doit être composé de 13 chiffre");
   }
 
   if (hasPermission === null) {
@@ -46,8 +46,8 @@ export default function Scanner() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    height:'100%',
-    justifyContent:'center',
-    alignItems:'center',
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
